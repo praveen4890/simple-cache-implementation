@@ -11,8 +11,9 @@ public class LRUCache implements Cache {
     private LinkedList<Node> list = new LinkedList<>();
     private Map<String, Node> map = new ConcurrentHashMap<>();
 
-    public LRUCache(String name, CacheConfig config) {
+    public LRUCache(String name, int cacheSize) {
         this.cacheName = name;
+        this.cacheSize = cacheSize;
     }
 
     @Override

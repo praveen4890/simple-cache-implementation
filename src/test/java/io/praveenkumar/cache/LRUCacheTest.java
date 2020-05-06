@@ -11,6 +11,7 @@ public class LRUCacheTest {
     CacheConfig cacheConfig;
     CacheManager cacheManager;
     Cache cache;
+
     @Before
     public void init() throws Exception{
         cacheConfig = new CacheConfig(2, EvictionPolicy.LRU);
@@ -24,9 +25,16 @@ public class LRUCacheTest {
         Assert.assertEquals(cache.getAllItems(),"[]");
     }
 
+    @Test
+    public void testAutoEviction() {
+        cache.put("1", "1");
+        cache.put("2", "2");
+        cache.put("3", "3");
+        Assert.assertEquals(cache.lookup("1"), null);
+    }
 
     @Test
-    public void testEvict() {
+    public void testForecedEviction() {
         cache.put("1", "1");
         cache.put("2", "2");
         cache.evict("2");

@@ -3,6 +3,10 @@ package io.praveenkumar.cache;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Cache manager takes care of creation of new caches
+ * We can create new cache
+ */
 public class CacheManager {
 
     private Map<String, Cache> caches = new HashMap<>();
@@ -14,6 +18,9 @@ public class CacheManager {
 
         Cache cache = null;
 
+        /**
+         *
+         */
         switch(config.getEvictionPolicy()) {
             case LRU:
                 cache = new LRUCache(cacheName, config.getCacheSize());

@@ -32,4 +32,9 @@ public interface Cache {
      * @return
      */
     String getName();
+
+    /**
+     * Helper method to print cache data
+     */
+    String getAllItems();
 }
